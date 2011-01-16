@@ -28,6 +28,9 @@ tvOutDialog::~tvOutDialog()
 
 void tvOutDialog::accept()
 {
-    tvoutFormat->set(formatButton->valueText());
+    if(formatButton->valueText() == g_dgettext("osso-tv-out", "tvou_va_tv_out_pal"))
+        tvoutFormat->set("PAL");
+    else if(formatButton->valueText() == g_dgettext("osso-tv-out", "tvou_va_tv_out_ntsc"))
+        tvoutFormat->set("NTSC");
     this->close();
 }

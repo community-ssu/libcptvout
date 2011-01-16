@@ -27,6 +27,8 @@ private:
     GConfItem *tvOutFormat;
     QDialog *pickerDialog;
     QWidget *widget(QWidget *parent);
+    QListWidgetItem *palItem;
+    QListWidgetItem *ntscItem;
 
 private slots:
     void updateText();

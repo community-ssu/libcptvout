@@ -6,11 +6,11 @@ tvoutFormatPicker::tvoutFormatPicker(QObject *parent) :
 {
     tvOutFormat = new GConfItem("/system/tvout");
     tvOutFormatsList = new QListWidget();
-    QListWidgetItem *palItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_pal"));
+    palItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_pal"));
     palItem->setData(Qt::UserRole, "PAL");
     palItem->setTextAlignment(Qt::AlignCenter);
 
-    QListWidgetItem *ntscItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_ntsc"));
+    ntscItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_ntsc"));
     ntscItem->setData(Qt::UserRole, "NTSC");
     ntscItem->setTextAlignment(Qt::AlignCenter);
 
@@ -28,7 +28,10 @@ tvoutFormatPicker::~tvoutFormatPicker() {}
 
 void tvoutFormatPicker::updateText()
 {
-    emit selected(this->currentValueText());
+    if(this->currentValueText() == "NTSC")
+        emit selected(ntscItem->text());
+    else if(this->currentValueText() == "PAL")
+        emit selected(palItem->text());
     pickerDialog->accept();
 }
 
