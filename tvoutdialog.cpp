@@ -6,8 +6,8 @@ tvOutDialog::tvOutDialog(QWidget *parent) :
     ui(new Ui::tvOutDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle(QString(g_dgettext("osso-tv-out", "tvou_ap_cpa")));
-    formatButton = new QMaemo5ValueButton(QString(g_dgettext("osso-tv-out", "tvou_fi_tv_out")), this);
+    this->setWindowTitle(g_dgettext("osso-tv-out", "tvou_ap_cpa"));
+    formatButton = new QMaemo5ValueButton(g_dgettext("osso-tv-out", "tvou_fi_tv_out"), this);
     formatButton->setValueLayout(QMaemo5ValueButton::ValueBesideText);
     formatButton->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
 
