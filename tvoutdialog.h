@@ -7,6 +7,8 @@
 #include <QStandardItemModel>
 #include <QGridLayout>
 #include <gq/GConfItem>
+#include <glib.h>
+#include <glib/gi18n.h>
 
 #include "tvoutformatpicker.h"
 

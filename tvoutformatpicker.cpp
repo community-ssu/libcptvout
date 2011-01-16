@@ -6,10 +6,12 @@ tvoutFormatPicker::tvoutFormatPicker(QObject *parent) :
 {
     tvOutFormat = new GConfItem("/system/tvout");
     tvOutFormatsList = new QListWidget();
-    QListWidgetItem *palItem = new QListWidgetItem("PAL");
+    QListWidgetItem *palItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_pal"));
+    palItem->setData(Qt::UserRole, "PAL");
     palItem->setTextAlignment(Qt::AlignCenter);
 
-    QListWidgetItem *ntscItem = new QListWidgetItem("NTSC");
+    QListWidgetItem *ntscItem = new QListWidgetItem(g_dgettext("osso-tv-out", "tvou_va_tv_out_ntsc"));
+    ntscItem->setData(Qt::UserRole, "NTSC");
     ntscItem->setTextAlignment(Qt::AlignCenter);
 
     tvOutFormatsList->addItem(ntscItem);
@@ -32,13 +34,13 @@ void tvoutFormatPicker::updateText()
 
 QString tvoutFormatPicker::currentValueText() const
 {
-    return tvOutFormatsList->selectedItems().first()->text();
+    return tvOutFormatsList->selectedItems().first()->data(Qt::UserRole).toString();
 }
 
 QWidget *tvoutFormatPicker::widget(QWidget *parent)
 {
     pickerDialog = new QDialog(parent);
-    pickerDialog->setWindowTitle("Video format");
+    pickerDialog->setWindowTitle(g_dgettext("osso-tv-out", "tvou_fi_tv_out"));
     pickerDialog->setMaximumHeight(150);
     QVBoxLayout *layout = new QVBoxLayout(pickerDialog);
     layout->addWidget(tvOutFormatsList);

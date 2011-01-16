@@ -7,6 +7,8 @@
 #include <gq/GConfItem>
 #include <QDialog>
 #include <QVBoxLayout>
+#include <glib.h>
+#include <glib/gi18n.h>
 
 class tvoutFormatPicker : public QMaemo5AbstractPickSelector
 {

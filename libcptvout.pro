@@ -23,7 +23,7 @@ FORMS    += tvoutdialog.ui
 
 CONFIG += mobility link_pkgconfig
 MOBILITY = 
-PKGCONFIG += gq-gconf
+PKGCONFIG += gq-gconf glib-2.0
 
 symbian {
     TARGET.UID3 = 0xec2877be
